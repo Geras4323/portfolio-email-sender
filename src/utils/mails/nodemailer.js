@@ -2,7 +2,7 @@ const nodemailer = require("nodemailer");
 require('dotenv').config();
 
 
-async function sendEMail(emailInfo) {
+async function sendEMail(emailInfo, returnMessage) {
   // create reusable transporter object using the default SMTP transport
   const transporter = nodemailer.createTransport({
     host: 'smtp.gmail.com',
@@ -20,7 +20,7 @@ async function sendEMail(emailInfo) {
     from: process.env.GMAIL_MAIL,
   });
 
-  return { message: 'Email sent successfully' }
+  return { message: returnMessage }
 }
 
 module.exports = { sendEMail };

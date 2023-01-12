@@ -15,7 +15,9 @@ class EmailService {
         </div>
       `,
     }
-    await sendEMail(emailInfoForMe);
+    const returnMessage = 'Notification mail sent successfully'
+    const sent = await sendEMail(emailInfoForMe, returnMessage);
+    return sent;
   }
 
   async sendConfirmationEmail(email) {
@@ -30,7 +32,9 @@ class EmailService {
         </div>
       `,
     }
-    await sendEMail(emailInfoForUser);
+    const returnMessage = 'Confirmation mail sent successfully'
+    const sent = await sendEMail(emailInfoForUser, returnMessage);
+    return sent;
   }
 }
 
